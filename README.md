@@ -1,7 +1,14 @@
 # learn-shell
 
-I will learn the bash shell scripting
+shell scripting, we will learn bash shell scripting
 
-I learn terrform
+List of Topics:
 
-I learn devops
+1. comments
+2. print
+3. variables
+4. Functions
+5. conditions
+6. Loops
+7. Exit status & Redirectories & quotes
+8. SED Editor
