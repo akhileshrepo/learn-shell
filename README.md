@@ -1,5 +1,5 @@
 # learn-shell
 
-I will lern the bash shell scripting
+I will learn the bash shell scripting
 
 I learn terrform
