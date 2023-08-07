@@ -2,4 +2,4 @@
 
 I will lern the bash shell scripting
 
-I lern terrform
+I learn terrform
