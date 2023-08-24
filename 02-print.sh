@@ -1,24 +1,19 @@
-#reset - 0
+echo Hello World
 
-#red - 31
+# Red       31
+# Green     32
+# Yellow    33
+# Blue      34
+# Magenta   35
+# Cyan      36
+# reset     0 
 
-#green - 32
+# Syntax
+# echo -e "\e[CODEmMESSAGE\e[0m"
 
-#yellow - 33
-
-#blue - 34
-
-#magenta - 35
-
-#cyan - 36
-
-#syntax:
-#echo -e "\e[CODEmMessage\e[0m"
-
-echo Hello world
-echo -e "\e[31mHello Devops\e[0m"
-echo -e "\e[32mHello Devops\e[0m"
-echo -e "\e[33mHello Devops\e[0m"
-echo -e "\e[34mHello Devops\e[0m"
-echo -e "\e[35mHello Devops\e[0m"
-echo -e "\e[36mHello Devops\e[0m"
+echo -e "\e[31mHello World\e[0m"
+echo -e "\e[32mHello World\e[0m"
+echo -e "\e[33mHello World\e[0m"
+echo -e "\e[34mHello World\e[0m"
+echo -e "\e[35mHello World\e[0m"
+echo -e "\e[36mHello World\e[0m"
