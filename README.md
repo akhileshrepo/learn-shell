@@ -12,4 +12,4 @@ List of Topics:
 6. Loops
 7. Exit status & Redirectories & quotes
 8. SED Editor
-
+# List of the Topics
