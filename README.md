@@ -10,6 +10,6 @@ List of Topics:
 4. Functions
 5. conditions
 6. Loops
-7. Exit status & Redirectories & quotes
+7. Exit status & Redirectors & quotes
 8. SED Editor
 # List of the Topics
