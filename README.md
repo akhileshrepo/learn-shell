@@ -13,5 +13,3 @@ List of Topics:
 7. Exit status & Redirectories & quotes
 8. SED Editor
 
-# I'm learning the Terraform
-# I'm learning Devops
