@@ -6,7 +6,6 @@ echo Hello World
 # Blue      34
 # Magenta   35
 # Cyan      36
-# reset     0 
 
 # Syntax
 # echo -e "\e[CODEmMESSAGE\e[0m"
