@@ -13,3 +13,4 @@ List of Topics:
 7. Exit status & Redirections & quotes
 8. SED Editor
 # List of the Topics
+I need to learn shell script
