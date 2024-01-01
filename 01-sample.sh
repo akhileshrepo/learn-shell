@@ -1,5 +1,5 @@
 ls
-ls -l
+ls -ltr
 uname
 
 uname -a
