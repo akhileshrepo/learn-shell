@@ -1,5 +1,5 @@
-a=20
+a=0
 
-if [ $a -lt 0 ]; then
+if [ $a -eq 0 ]; then
   echo $a is greater than zero
 fi
