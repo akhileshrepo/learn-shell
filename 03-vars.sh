@@ -5,8 +5,9 @@ echo a is  $a
 # Special Variables
 # $0 - $N, $*, $#
 
-echo first argument - $0
-echo second argument - $1
+echo file name - $0
+echo first argument - $1
+echo second argument - $2
 echo no. of arguments - $#
 echo all arguments - $*
 
