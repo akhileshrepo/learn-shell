@@ -17,5 +17,6 @@ echo ADD of 2+2 = $ADD
 
 # Access environment variables
 echo Username - $USER
+export abc=100
 echo Env Var abc - $abc
 # export abc=100 from CLI can make this variable printed
