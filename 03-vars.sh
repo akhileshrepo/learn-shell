@@ -5,6 +5,11 @@ echo a is  $a
 # Special Variables
 # $0 - $N, $*, $#
 
+echo first argument - $0
+echo second argument - $1
+echo no. of arguments - $#
+echo all arguments - $*
+
 # Substitution Variables
 ## Command Substitution
 DATE=$(date)
