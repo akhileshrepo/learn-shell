@@ -30,6 +30,5 @@
 
 
 #variable in shell scripting
-
 a=100
-echo "value of a is $a"
+echo "value of a - $a"
