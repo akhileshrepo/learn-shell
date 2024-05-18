@@ -45,3 +45,5 @@ echo "Today date is $DATE"
 ADD=$((2+2))
 echo "Total Sum is $ADD"
 
+#Environmment variables
+echo "username - $USER"
