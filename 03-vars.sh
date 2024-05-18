@@ -32,4 +32,5 @@
 #variable in shell scripting
 a=[1,2,3,4,5,6,7,8,9]
 echo "value of a - $a"
-echo "value of a - $0"
+echo "File Name - $0"
+echo "First Argument - $1"
