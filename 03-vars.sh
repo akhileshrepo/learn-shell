@@ -1,53 +1,31 @@
-## Variables
-#a=10
-#echo a is  $a
-#
-## Special Variables
-## $0 - $N, $*, $#
-#
-#echo file name - $0
-#echo first argument - $1
-#echo second argument - $2
-#echo no. of arguments - $#
-#echo all arguments - $*
-#
-## Substitution Variables
-### Command Substitution
-#DATE=$(date)
-#
-#echo Today Date is $DATE
-#
-### Arithmetic Substitution
-#ADD=$(( 2+2 ))
-#echo ADD of 2+2 = $ADD
-#
-## Access environment variables
-#echo Username - $USER
-#export abc=500
-#echo Env Var abc - $abc
-## export abc=100 from CLI can make this variable printed
+# Variables
+a=10
+echo a is  $a
 
+# Special Variables
+# $0 - $N, $*, $#
 
+echo file name - $0
+echo first argument - $1
+echo second argument - $2
+echo no. of arguments - $#
+echo all arguments - $*
 
-#variable in shell scripting
-a=100
-echo "value of a - $a"
-echo "File Name - $0"
-echo "First Argument - $1"
-echo "Second Argument - $2"
-echo "All Arguments - $*"
-echo "No of Arguments - $#"
-
-#substitution variable
+# Substitution Variables
+## Command Substitution
 DATE=$(date)
-echo "Today date is $DATE"
 
-ADD=$((2+2))
-echo "Total Sum is $ADD"
+echo Today Date is $DATE
 
-#Environmment variables
-export XDG_SESSION_ID=5
-echo XDG_SESSION_ID - $XDG_SESSION_ID
+## Arithmetic Substitution
+ADD=$(( 2+2 ))
+echo ADD of 2+2 = $ADD
 
-export USER=akhil
-echo "value of user is $USER"
+# Access environment variables
+echo Username - $USER
+export abc=500
+echo Env Var abc - $abc
+# export abc=100 from CLI can make this variable printed
+
+
+
