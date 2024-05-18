@@ -34,3 +34,4 @@ a=100
 echo "value of a - $a"
 echo "File Name - $0"
 echo "First Argument - $1"
+echo "Second Argument - $2"
