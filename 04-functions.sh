@@ -30,3 +30,11 @@ greeting() {
 
 greeting
 echo "Function exit status - $?"
+
+input() {
+  echo "First argument - $1"
+  echo "Second argument - $2"
+  echo "File name - $0"
+}
+
+input abc xyz
