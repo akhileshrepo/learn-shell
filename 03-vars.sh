@@ -46,4 +46,4 @@ ADD=$((2+2))
 echo "Total Sum is $ADD"
 
 #Environmment variables
-echo Username - $USER
+echo Username - $PWD
