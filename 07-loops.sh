@@ -18,3 +18,10 @@
 for comp in frontend catalogue mongodb;do
   echo Installing component - $comp
 done
+
+#while loop
+a=100
+while [ $a -gt 0 ]; do
+  echo "Hello world"
+done
+
