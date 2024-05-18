@@ -48,3 +48,6 @@ echo "Total Sum is $ADD"
 #Environmment variables
 export XDG_SESSION_ID=5
 echo XDG_SESSION_ID - $XDG_SESSION_ID
+
+export abc=500
+echo "value of abc is $abc"
