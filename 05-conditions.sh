@@ -1,4 +1,4 @@
-a=500
+a=50
 
 if [ $a -gt 0 ]; then
   echo "a is greater than zero"
