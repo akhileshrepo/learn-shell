@@ -49,5 +49,5 @@ echo "Total Sum is $ADD"
 export XDG_SESSION_ID=5
 echo XDG_SESSION_ID - $XDG_SESSION_ID
 
-export xyz=1000
-echo "value of abc is $xyz"
+export USER=akhil
+echo "value of user is $USER"
