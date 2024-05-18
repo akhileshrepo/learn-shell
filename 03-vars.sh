@@ -46,4 +46,4 @@ ADD=$((2+2))
 echo "Total Sum is $ADD"
 
 #Environmment variables
-echo Shell - $SHELL
+echo XDG_SESSION_ID - $XDG_SESSION_ID
