@@ -41,3 +41,7 @@ echo "No of Arguments - $#"
 #substitution variable
 DATE=$(date)
 echo "Today date is $DATE"
+
+ADD=$((2+2))
+echo "Total Sum is $ADD"
+
