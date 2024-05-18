@@ -35,6 +35,8 @@ input() {
   echo "First argument - $1"
   echo "Second argument - $2"
   echo "File name - $0"
+  input 123 456
 }
 
 input abc xyz
+
