@@ -29,3 +29,4 @@ greeting() {
 }
 
 greeting
+echo "Function exit status - $?"
