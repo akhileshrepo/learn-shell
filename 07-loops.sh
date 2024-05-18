@@ -23,6 +23,6 @@ done
 a=100
 while [ $a -gt 0 ]; do
   echo "Hello world"
-  a=$(($a-99))
+  a=$(($a-100))
 done
 
