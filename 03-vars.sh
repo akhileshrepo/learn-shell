@@ -39,5 +39,5 @@ echo "All Arguments - $*"
 echo "No of Arguments - $#"
 
 #substitution variable
-DATE = $(date)
+DATE=$(date)
 echo "Today date is $DATE"
