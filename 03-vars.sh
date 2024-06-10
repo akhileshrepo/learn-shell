@@ -2,20 +2,15 @@
 a=10
 echo a is  $a
 
+# Special Variables
+# $0 - $N, $*, $#
 
+echo file name - $0
+echo first argument - $1
+echo second argument - $2
+echo no. of arguments - $#
+echo all arguments - $*
 
-
-
-
-## Special Variables
-## $0 - $N, $*, $#
-#
-#echo file name - $0
-#echo first argument - $1
-#echo second argument - $2
-#echo no. of arguments - $#
-#echo all arguments - $*
-#
 ## Substitution Variables
 ### Command Substitution
 #DATE=$(date)
