@@ -16,6 +16,9 @@ dnf install nodejs -y
 echo -e "\e[35m>>>>> Adding roboshop user <<<<<<\e[0m"
 useradd roboshop
 
+echo -e "\e[35m>>>>> cleanup the directory <<<<<<\e[0m"
+rm -rf /app
+
 echo -e "\e[35m>>>>> change the directory <<<<<<\e[0m"
 mkdir /app
 
