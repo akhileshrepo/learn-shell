@@ -1,3 +1,5 @@
+log=/tmp/roboshop.log
+
 func_apppreq() {
   echo -e "\e[35m>>>>> create ${component} service <<<<<<\e[0m" | tee -a ${log}
   cp ${component}.service /etc/systemd/system/${component}.service &>>${log}
@@ -67,19 +69,19 @@ func_nodejs () {
 func_java() {
 
   echo -e "\e[35m>>>>> Install Maven Packages <<<<<<\e[0m" | tee -a ${log}
-  dnf install maven -y
-
-  echo -e "\e[35m>>>>> Build ${component} service<<<<<<\e[0m" | tee -a ${log}
-  mvn clean package
-  mv target/shipping-1.0.jar shipping.jar
+  dnf install maven -y &>>${log}
 
   func_apppreq
 
+  echo -e "\e[35m>>>>> Build ${component} service<<<<<<\e[0m" | tee -a ${log}
+  mvn clean package &>>${log}
+  mv target/shipping-1.0.jar ${component}.jar &>>${log}
+
   echo -e "\e[35m>>>>> Install Mysql client <<<<<<\e[0m" | tee -a ${log}
-  dnf install mysql -y
+  dnf install mysql -y &>>${log}
 
   echo -e "\e[35m>>>>> Load schema <<<<<<\e[0m" | tee -a ${log}
-  mysql -h mysql.akhildevops.online -uroot -pRoboShop@1 < /app/schema/${component}.sql
+  mysql -h mysql.akhildevops.online -uroot -pRoboShop@1 < /app/schema/${component}.sql &>>${log}
 
   func_systemd
 
