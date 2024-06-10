@@ -17,10 +17,10 @@ DATE=$(date)
 
 echo Today Date is $DATE
 
-### Arithmetic Substitution
-#ADD=$(( 2+2 ))
-#echo ADD of 2+2 = $ADD
-#
+## Arithmetic Substitution
+ADD=$((2+2))
+echo ADD of 2+2 = $ADD
+
 ## Access environment variables
 #echo Username - $USER
 #export abc=500
