@@ -1,11 +1,6 @@
-a=50
+a=100
 
-if [ $a -gt 0 ]; then
-  echo "a is greater than zero"
-fi
-
-
-if [ $a -lt 100 ]; then
-  echo "a is less than hundred"
+if [$a -gt 0]; then
+  echo "$a is greater than 0"
 fi
 
