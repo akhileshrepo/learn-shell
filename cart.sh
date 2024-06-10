@@ -1,3 +1,3 @@
 source common.sh
 component=cart
-nodejs
+func_nodejs
