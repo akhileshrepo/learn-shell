@@ -86,3 +86,15 @@ func_java() {
   func_systemd
 
 }
+
+func_python() {
+  echo -e "\e[35m>>>>> Build ${component} service <<<<<<\e[0m" | tee -a ${log}
+  dnf install python36 gcc python3-devel -y
+
+  func_apppreq
+
+  echo -e "\e[35m>>>>> Build ${component} service<<<<<<\e[0m" | tee -a ${log}
+  pip3.6 install -r requirements.txt
+
+  func_systemd
+}
