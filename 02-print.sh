@@ -1,5 +1,5 @@
 echo Hello World
-echo '>>>>>>>>>>>>>>>>> Hello world <<<<<<<<<<<<<<<<<<<'
+echo ">>>>>>>>>>>>>>>>> Hello world <<<<<<<<<<<<<<<<<<<"
 
 # Red       31
 # Green     32
