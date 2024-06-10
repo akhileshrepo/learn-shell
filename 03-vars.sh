@@ -11,12 +11,12 @@ echo second argument - $2
 echo no. of arguments - $#
 echo all arguments - $*
 
-## Substitution Variables
-### Command Substitution
-#DATE=$(date)
-#
-#echo Today Date is $DATE
-#
+# Substitution Variables
+## Command Substitution
+DATE=$(date)
+
+echo Today Date is $DATE
+
 ### Arithmetic Substitution
 #ADD=$(( 2+2 ))
 #echo ADD of 2+2 = $ADD
