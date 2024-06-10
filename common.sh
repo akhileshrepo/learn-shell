@@ -30,7 +30,7 @@ func_apppreq() {
   func_exit_status
 
   echo -e "\e[35m>>>>> Download the content <<<<<<\e[0m" | tee -a ${log}
-  curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
+  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
   func_exit_status
 
   echo -e "\e[35m>>>>> change the directory <<<<<<\e[0m" | tee -a ${log}
