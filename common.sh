@@ -1,20 +1,6 @@
-func_nodejs () {
-  log=/tmp/roboshop.log
-
+func_apppreq() {
   echo -e "\e[35m>>>>> create ${component} service <<<<<<\e[0m" | tee -a ${log}
   cp ${component}.service /etc/systemd/system/${component}.service &>>${log}
-
-  echo -e "\e[35m>>>>> Download mongo repos <<<<<<\e[0m" | tee -a ${log}
-  cp mongo.repo /etc/yum.repos.d/mongo.repo &>>${log}
-
-  echo -e "\e[35m>>>>> Disable Nodejs module <<<<<<\e[0m" | tee -a ${log}
-  dnf module disable nodejs -y &>>${log}
-
-  echo -e "\e[35m>>>>> Enable Nodejs module <<<<<<\e[0m" | tee -a ${log}
-  dnf module enable nodejs:18 -y &>>${log}
-
-  echo -e "\e[35m>>>>> Install Nodejs <<<<<<\e[0m" | tee -a ${log}
-  dnf install nodejs -y &>>${log}
 
   echo -e "\e[35m>>>>> Adding roboshop user <<<<<<\e[0m" | tee -a ${log}
   useradd roboshop &>>${log}
@@ -36,6 +22,35 @@ func_nodejs () {
 
   echo -e "\e[35m>>>>> change the directory <<<<<<\e[0m" | tee -a ${log}
   cd /app
+}
+
+func_systemd() {
+  echo -e "\e[35m>>>>> Reload the config <<<<<<\e[0m" | tee -a ${log}
+  systemctl daemon-reload &>>${log}
+
+  echo -e "\e[35m>>>>> Enable the service <<<<<<\e[0m" | tee -a ${log}
+  systemctl enable ${component} &>>${log}
+
+  echo -e "\e[35m>>>>> Restart the service <<<<<<\e[0m" | tee -a ${log}
+  systemctl restart ${component} &>>${log}
+}
+
+func_nodejs () {
+  log=/tmp/roboshop.log
+
+  echo -e "\e[35m>>>>> Download mongo repos <<<<<<\e[0m" | tee -a ${log}
+  cp mongo.repo /etc/yum.repos.d/mongo.repo &>>${log}
+
+  echo -e "\e[35m>>>>> Disable Nodejs module <<<<<<\e[0m" | tee -a ${log}
+  dnf module disable nodejs -y &>>${log}
+
+  echo -e "\e[35m>>>>> Enable Nodejs module <<<<<<\e[0m" | tee -a ${log}
+  dnf module enable nodejs:18 -y &>>${log}
+
+  echo -e "\e[35m>>>>> Install Nodejs <<<<<<\e[0m" | tee -a ${log}
+  dnf install nodejs -y &>>${log}
+
+ func_apppreq
 
   echo -e "\e[35m>>>>> Install dependencies <<<<<<\e[0m" | tee -a ${log}
   npm install &>>${log}
@@ -46,12 +61,26 @@ func_nodejs () {
   echo -e "\e[35m>>>>> Load schema <<<<<<\e[0m" | tee -a ${log}
   mongo --host mongodb.akhildevops.online </app/schema/${component}.js &>>${log}
 
-  echo -e "\e[35m>>>>> Reload the config <<<<<<\e[0m" | tee -a ${log}
-  systemctl daemon-reload &>>${log}
+  func_systemd
+}
 
-  echo -e "\e[35m>>>>> Enable the service <<<<<<\e[0m" | tee -a ${log}
-  systemctl enable ${component} &>>${log}
+func_java() {
 
-  echo -e "\e[35m>>>>> Restart the service <<<<<<\e[0m" | tee -a ${log}
-  systemctl restart ${component} &>>${log}
+  echo -e "\e[35m>>>>> Install Maven Packages <<<<<<\e[0m" | tee -a ${log}
+  dnf install maven -y
+
+  echo -e "\e[35m>>>>> Build ${component} service<<<<<<\e[0m" | tee -a ${log}
+  mvn clean package
+  mv target/shipping-1.0.jar shipping.jar
+
+  func_apppreq
+
+  echo -e "\e[35m>>>>> Install Mysql client <<<<<<\e[0m" | tee -a ${log}
+  dnf install mysql -y
+
+  echo -e "\e[35m>>>>> Load schema <<<<<<\e[0m" | tee -a ${log}
+  mysql -h mysql.akhildevops.online -uroot -pRoboShop@1 < /app/schema/${component}.sql
+
+  func_systemd
+
 }
