@@ -1,5 +1,11 @@
 source common.sh
 
+rabbitmq_app_password=$1
+if [ -z "${rabbitmq_app_password}" ]; then
+  echo "input password missing"
+  exit 1
+fi
+
 echo -e "\e[36m>>>>>>>>>>>>> Download erlang repos <<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> /tmp/roboshop.log
 func_exit_status
@@ -18,7 +24,7 @@ systemctl restart rabbitmq-server &>>/tmp/roboshop.log
 func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>> Adding username and password <<<<<<<<<<<<<<<\e[0m"| tee -a /tmp/roboshop.log
-rabbitmqctl add_user roboshop roboshop123 &>> /tmp/roboshop.log
+rabbitmqctl add_user roboshop ${rabbitmq_app_password} &>> /tmp/roboshop.log
 
 echo -e "\e[36m>>>>>>>>>>>>> Assign permission to user <<<<<<<<<<<<<<<<<<\e[0m"| tee -a /tmp/roboshop.log
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> /tmp/roboshop.log

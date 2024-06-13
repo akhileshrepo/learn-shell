@@ -1,5 +1,11 @@
 source common.sh
 
+mysql_password=$1
+if [ -z "${mysql_password}" ]; then
+  echo "Input password missing"
+  exit 1
+fi
+
 echo -e "\e[36m>>>>>>>>>>>>>>>>>>>>>> Disable mysql module <<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
 dnf module disable mysql -y &>> /tmp/roboshop.log
 func_exit_status
@@ -18,5 +24,5 @@ systemctl start mysqld &>> /tmp/roboshop.log
 func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>>>> Set Root Password for mysql <<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-mysql_secure_installation --set-root-pass RoboShop@1 &>> /tmp/roboshop.log
+mysql_secure_installation --set-root-pass ${mysql_password} &>> /tmp/roboshop.log
 func_exit_status
