@@ -75,12 +75,24 @@ func_nodejs() {
 
 func_schema_setup() {
   if [ "${schema_type}" == "mongodb" ]; then
-    echo -e "\e[36m>>>>>>>>>>>>>>>>Install Mongodb client<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-    dnf install mongodb-org-shell -y &>> /tmp/roboshop.log
+    echo -e "\e[36m>>>>>>>>>>>>  Install Mongo Client  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
+    yum install mongodb-org-shell -y &>>${log}
     func_exit_status
 
-    echo -e "\e[36m>>>>>>>>>>>>>> Load schema<<<<<<<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-    mongo --host 172.31.28.147 </app/schema/${component}.js &>> /tmp/roboshop.log
+    echo -e "\e[36m>>>>>>>>>>>>  Load User Schema  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
+    mongo --host 172.31.28.147 </app/schema/${component}.js &>>${log}
+    func_exit_status
   fi
+
+#  if [ "${schema_type}" == "mysql" ]; then
+#    echo -e "\e[36m>>>>>>>>>>>>  Install MySQL Client   <<<<<<<<<<<<\e[0m"
+#    yum install mysql -y &>>${log}
+#    func_exit_status
+#
+#    echo -e "\e[36m>>>>>>>>>>>>  Load Schema   <<<<<<<<<<<<\e[0m"
+#    mysql -h mysql.rdevopsb72.online -uroot -pRoboShop@1 < /app/schema/${component}.sql &>>${log}
+#    func_exit_status
+#  fi
+
 }
 
