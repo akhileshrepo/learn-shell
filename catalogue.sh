@@ -1,6 +1,7 @@
+component=catalogue
 schema_type=mongodb
-component=user
 source common.sh
+
 func_nodejs
 
 
