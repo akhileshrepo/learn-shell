@@ -51,13 +51,13 @@ func_schema_setup() {
   fi
 
   if [ "${schema_type}" == "mysql" ]; then
-    echo -e "\e[36m>>>>>>>>>>>>  Install mysql  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
-    dnf install mysql -y
-    func_exit_status
+      echo -e "\e[36m>>>>>>>>>>>>  Install MySQL Client   <<<<<<<<<<<<\e[0m"
+      yum install mysql -y &>>${log}
+      func_exit_status
 
-    echo -e "\e[36m>>>>>>>>>>>>  load schema  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
-    mysql -h 172.31.34.73 -uroot -pRoboShop@1 < /app/schema/shipping.sql
-    func_exit_status
+      echo -e "\e[36m>>>>>>>>>>>>  Load Schema   <<<<<<<<<<<<\e[0m"
+      mysql -h 172.31.34.73 -uroot -pRoboShop@1 < /app/schema/${component}.sql &>>${log}
+      func_exit_status
   fi
 }
 

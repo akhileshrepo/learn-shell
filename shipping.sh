@@ -1,4 +1,5 @@
-source common.sh
 component=shipping
-func_java
 schema_type=mysql
+source common.sh
+
+func_java
