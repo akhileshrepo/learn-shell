@@ -14,6 +14,6 @@ sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>/tmp/roboshop.log
 func_exit_status
 
 echo -e "\e[36m>>>>>>>> Restart the Mongodb <<<<<<<<<<<\e[0m"
-systemctl enable mongod /tmp/roboshop.log &>>/tmp/roboshop.log
-systemctl restart mongod /tmp/roboshop.log &>>/tmp/roboshop.log
+systemctl enable mongod  &>>/tmp/roboshop.log
+systemctl restart mongod  &>>/tmp/roboshop.log
 func_exit_status
