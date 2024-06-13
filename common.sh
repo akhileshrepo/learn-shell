@@ -51,6 +51,8 @@ func_nodejs() {
   cp mongo.repo /etc/yum.repos.d/mongo.repo &>> /tmp/roboshop.log
   func_exit_status
 
+  func_apppreq
+
   echo -e "\e[36m>>>>>>>>>>>> Disable and enable module >>>>>>>>>>>\e[0m" | tee -a /tmp/roboshop.log
   dnf module disable nodejs -y &>> /tmp/roboshop.log
   dnf module enable nodejs:18 -y &>> /tmp/roboshop.log
@@ -64,8 +66,6 @@ func_nodejs() {
   cd /app &>> /tmp/roboshop.log
   npm install &>> /tmp/roboshop.log
   func_exit_status
-
-  func_apppreq
 
   func_schema_setup
 
