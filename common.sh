@@ -74,11 +74,13 @@ func_nodejs() {
 }
 
 func_schema_setup() {
-  echo -e "\e[36m>>>>>>>>>>>>>>>>Install Mongodb client<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-  dnf install mongodb-org-shell -y &>> /tmp/roboshop.log
-  func_exit_status
+  if [ "${schema_type}" == "mongodb" ]; then
+    echo -e "\e[36m>>>>>>>>>>>>>>>>Install Mongodb client<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
+    dnf install mongodb-org-shell -y &>> /tmp/roboshop.log
+    func_exit_status
 
-  echo -e "\e[36m>>>>>>>>>>>>>> Load schema<<<<<<<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-  mongo --host 172.31.28.147 </app/schema/${component}.js &>> /tmp/roboshop.log
+    echo -e "\e[36m>>>>>>>>>>>>>> Load schema<<<<<<<<<<<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
+    mongo --host 172.31.28.147 </app/schema/${component}.js &>> /tmp/roboshop.log
+  fi
 }
 
