@@ -13,13 +13,7 @@ echo -e "\e[36m>>>>>>>>>>>> Install Nodejs >>>>>>>>>>>\e[0m" | tee -a /tmp/robos
 dnf install nodejs -y &>> /tmp/roboshop.log
 func_exit_status
 
-echo -e "\e[36m>>>>>>>>>>>> adding user >>>>>>>>>>>\e[0m" | tee -a /tmp/roboshop.log
-useradd roboshop &>> /tmp/roboshop.log
-func_exit_status
-
-echo -e "\e[36m>>>>>>>>>>>>>>> Clean up app directory <<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-rm -rf /app &>> /tmp/roboshop.log
-func_exit_status
+func_apppreq
 
 
 echo -e "\e[36m>>>>>>>>>>>>>>> Create app dir <<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
