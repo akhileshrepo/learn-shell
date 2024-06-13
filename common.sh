@@ -114,3 +114,14 @@ func_java() {
    func_systemd
 }
 
+func_python() {
+  echo -e "\e[36m>>>>>>>>>>> Install python packages <<<<<<<<<<<<<<<" | tee -a /tmp/roboshop.log
+  dnf install python36 gcc python3-devel -y &>> /tmp/roboshop.log
+
+  echo -e "\e[36m>>>>>>>>>>> Install pip packages <<<<<<<<<<<<<<" | tee -a /tmp/roboshop.log
+  pip3.6 install -r requirements.txt
+
+  func_apppreq
+
+  func_systemd
+}
