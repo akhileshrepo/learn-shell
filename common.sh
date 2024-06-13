@@ -8,3 +8,16 @@ func_exit_status() {
   fi
 }
 
+func_apppreq() {
+  echo -e "\e[36m>>>>>>>>>>>> Adding user >>>>>>>>>>>>>>>\e[0m" | tee -a /tmp/roboshop.log
+  id roboshop &>> /tmp/roboshop.log
+  if [ $? -ne 0 ]; then
+    useradd roboshop
+  fi
+  func_exit_status
+
+  echo -e "\e[36m>>>>>>>>>>>>>>> Clean up app directory <<<<<<<<<<<<<<<\e[0m"
+  rm -rf /app
+  func_exit_status
+}
+
