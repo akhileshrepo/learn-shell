@@ -14,8 +14,8 @@ dnf install redis -y &>> /tmp/roboshop.log
 func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>>> update listen address <<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-sed -i 's/127.0.0.1/0.0.0.0' /etc/redis.conf &>> /tmp/roboshop.log
-sed -i 's/127.0.0.1/0.0.0.0' /etc/redis/redis.conf &>> /tmp/roboshop.log
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/redis.conf &>> /tmp/roboshop.log
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf &>> /tmp/roboshop.log
 func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>>> Restart the service <<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
