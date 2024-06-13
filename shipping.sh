@@ -1,4 +1,4 @@
-component=shipping
 source common.sh
-schema_type=mysql
+component=shipping
 func_java
+schema_type=mysql

@@ -49,6 +49,16 @@ func_schema_setup() {
     mongo --host 172.31.28.147 </app/schema/${component}.js &>>${log}
     func_exit_status
   fi
+
+  if [ "${schema_type}" == "mysql" ]; then
+    echo -e "\e[36m>>>>>>>>>>>>  Install mysql  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
+    dnf install mysql -y
+    func_exit_status
+
+    echo -e "\e[36m>>>>>>>>>>>>  load schema  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
+    mysql -h 172.31.34.73 -uroot -pRoboShop@1 < /app/schema/shipping.sql
+    func_exit_status
+  fi
 }
 
 func_systemd() {
@@ -84,7 +94,23 @@ func_nodejs() {
   func_schema_setup
 
   func_systemd
-
 }
 
+func_java() {
+
+   echo -e "\e[36m>>>>>>>>>>>>>> Build Maven  >>>>>>>>>>>>>>>\e[0m" | tee -a /tmp/roboshop.log
+   dnf install maven -y &>> /tmp/roboshop.log
+   func_exit_status
+
+   func_apppreq
+
+   echo -e "\e[36m>>>>>>>>>>>>> Download dependencies <<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
+   mvn clean package
+   mv target/shipping-1.0.jar shipping.jar
+   func_exit_status
+
+   func_schema_setup
+
+   func_systemd
+}
 
