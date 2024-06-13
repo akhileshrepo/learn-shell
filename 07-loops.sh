@@ -1,21 +1,16 @@
-## Two basic loops
-## for and while
-#
-## Based on expression
-#a=10
-#while [ $a -gt 0 ]; do
-#  echo Hello
-#  a=$(($a-1))
-#  #break # this command can break the loop
-#done
-#for comp in frontend catalogue user ; do
-#  echo Installing Component - $comp
-#done
+# Two basic loops
+# for and while
 
+# Based on expression
+a=10
+if [ $a -gt 0 ]; then
+  echo "Hello world"
+  a=$(($a-1))
+  # break
+fi
 
-#for loop
-
-for comp in frontend catalogue mongodb;do
+#Based on Input
+for comp in frontend catalogue mongodb; do
   echo Installing component - $comp
 done
 
@@ -23,6 +18,6 @@ done
 a=100
 while [ $a -gt 0 ]; do
   echo "Hello world"
-  a=$(($a-100))
+  a=$(($a-1))
+  #break
 done
-

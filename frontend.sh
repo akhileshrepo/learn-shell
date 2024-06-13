@@ -1,30 +1,24 @@
 source common.sh
 
-echo -e "\e[35m>>>>> Install Nginx <<<<<<\e[0m" | tee -a ${log}
-dnf install nginx -y &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Copy roboshop configuration >>>>>>>>>>>>>>>\e[0m"
+cp nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
-echo -e "\e[35m>>>>> Copy Roboshop configuration<<<<<<\e[0m" | tee -a ${log}
-cp nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Install Nginx >>>>>>>>>>>>>>>>>>>>>>>>\e[0m"
+dnf install nginx -y
 
-echo -e "\e[35m>>>>> Remove the Existing content <<<<<<\e[0m" | tee -a ${log}
-rm -rf /usr/share/nginx/html/* &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Clean up Existing content >>>>>>>>>>>>>>>>>>>>>>>>\e[0m"
+rm -rf /usr/share/nginx/html/*
 
-echo -e "\e[35m>>>>> Download app content <<<<<<\e[0m" | tee -a ${log}
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Download the application content >>>>>>>>>>>>>>>>>>>>>>>>\e[0m"
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
 
-echo -e "\e[35m>>>>> Change the directory <<<<<<\e[0m" | tee -a ${log}
-cd /usr/share/nginx/html &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> change the directory >>>>>>>>>>>>>>>>>>>>>>>>\e[0m"
+cd /usr/share/nginx/html
 
-echo -e "\e[35m>>>>> Unzip the app content <<<<<<\e[0m" | tee -a ${log}
-unzip /tmp/frontend.zip &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Extract the content >>>>>>>>>>>>>>>>>>>>>>>>\e[0m"
+unzip /tmp/frontend.zip
 
-echo -e "\e[35m>>>>> Reload and restart the service <<<<<<\e[0m" | tee -a ${log}
-systemctl enable nginx &>>/tmp/roboshop.log
-systemctl restart nginx &>>/tmp/roboshop.log
-func_exit_status
+echo "\e[35m>>>>>>>>>>>>>>> Restart the application >>>>>>>>>>>>>>>>>>>>\e[0m"
+systemctl restart nginx
+systemctl enable nginx
+systemctl status nginx
