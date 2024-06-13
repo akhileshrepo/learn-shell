@@ -48,8 +48,9 @@ func_schema_setup() {
     echo -e "\e[36m>>>>>>>>>>>>  Load User Schema  <<<<<<<<<<<<\e[0m"  | tee -a /tmp/roboshop.log
     mongo --host 172.31.28.147 </app/schema/${component}.js &>>${log}
     func_exit_status
+  else
+    func_systemd
   fi
-
 }
 
 func_systemd() {
