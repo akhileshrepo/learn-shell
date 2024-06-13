@@ -67,9 +67,9 @@ func_nodejs() {
   npm install &>> /tmp/roboshop.log
   func_exit_status
 
-  func_schema_setup
-
   func_systemd
+
+  func_schema_setup
 
 }
 
