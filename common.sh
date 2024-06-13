@@ -105,8 +105,8 @@ func_java() {
    func_apppreq
 
    echo -e "\e[36m>>>>>>>>>>>>> Download dependencies <<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
-   mvn clean package
-   mv target/shipping-1.0.jar shipping.jar
+   mvn clean package &>> /tmp/roboshop.log
+   mv target/shipping-1.0.jar shipping.jar &>> /tmp/roboshop.log
    func_exit_status
 
    func_schema_setup
