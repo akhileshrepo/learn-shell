@@ -6,6 +6,7 @@ func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>>>>>Download mongo repo file <<<<<<<<<<<<<<<\e[0m" | tee -a /tmp/roboshop.log
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> /tmp/roboshop.log
+func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>> Disable and Enable Nodejs module >>>>>>>>>>>\e[0m" | tee -a /tmp/roboshop.log
 dnf module disable nodejs -y &>> /tmp/roboshop.log
