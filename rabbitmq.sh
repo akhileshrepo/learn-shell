@@ -19,7 +19,6 @@ func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>> Adding username and password <<<<<<<<<<<<<<<\e[0m"| tee -a /tmp/roboshop.log
 rabbitmqctl add_user roboshop roboshop123 &>> /tmp/roboshop.log
-func_exit_status
 
 echo -e "\e[36m>>>>>>>>>>>>> Assign permission to user <<<<<<<<<<<<<<<<<<\e[0m"| tee -a /tmp/roboshop.log
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> /tmp/roboshop.log
