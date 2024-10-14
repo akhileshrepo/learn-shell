@@ -14,5 +14,5 @@ systemctl daemon-reload
 systemctl enable catalogue
 systemctl restart catalogue
 yum install mongodb-org-shell -y
-mongo --host mongodb.vinithaws.online </app/schema/catalogue.js
+mongo --host 172.31.47.187 </app/schema/catalogue.js
 
